@@ -1,0 +1,15 @@
+<table>
+  <tbody>
+  {{#each users}}
+    <tr {{bind-attr class="isGood:red:green" disabled=isGood}}>
+      {{#view tagName="td" classNameBindings="id"}}
+        {{id}}
+      {{/view}}
+      <td>{{first}}</td>
+      <td>{{last}}</td>
+      <td>{{description}}</td>
+      <td>{{born}}</td>
+    </tr>
+  {{/each}}
+  </tbody>
+</table>

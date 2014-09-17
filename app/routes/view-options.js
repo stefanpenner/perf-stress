@@ -4,13 +4,14 @@ import { generateUsers } from '../utils/generator';
 export default Ember.Route.extend({
   init: function() {
     this._super();
+
     var users = generateUsers(0, 1000);
+
     console.profile('storePush');
     this.store.pushPayload('user', users);
     console.profileEnd('storePush');
   },
   model: function() {
-
     Ember.run.schedule('afterRender', function() {
       console.profileEnd('render');
       console.profileEnd('all');
@@ -20,8 +21,8 @@ export default Ember.Route.extend({
     var users = this.users = this.store.all('user');
     console.profileEnd('store#all');
 
-
     console.profile('render');
+
     return users;
   },
 
