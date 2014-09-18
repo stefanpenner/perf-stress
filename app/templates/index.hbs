@@ -1,18 +1,3 @@
 <button {{action "churn"}}> churn</button>
 
-<table>
-  <tbody>
-  {{#each}}
-    <tr>
-      {{#view tagName="td" classNameBindings="id"}}
-        {{id}}
-      {{/view}}
-      <td>{{first}}</td>
-      <td>{{last}}</td>
-      <td>{{description}}</td>
-      <td>{{born}}</td>
-    </tr>
-  {{/each}}
-  </tbody>
-</table>
-
+{{things-table users=model}}
