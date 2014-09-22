@@ -1,17 +1,26 @@
+/*global chance*/
+
 function generateUsers(from, to) {
   var result = {
     users: []
   };
 
   for (var i = from; i < to; i++) {
-    result.users.push( {
-      id: i,
-      first: Math.random().toString(36).substring(7),
-      last:  Math.random().toString(36).substring(7),
-      age: Math.random() * 100,
-      description: Math.random().toString(36).substring(7),
-      born: Math.random() * 1000,
-      isGood: Math.round(Math.random(0, 1))
+    var firstName = chance.first();
+    var lastName  = chance.last();
+    var age       = chance.age();
+    var sentence  = chance.sentence({words: 10});
+    var birthday  = chance.date({string:true});
+    var isInDebt  = chance.bool();
+
+    result.users.push({
+      id:          i,
+      first:       firstName,
+      last:        lastName,
+      age:         age,
+      born:        birthday,
+      isInDebt:    isInDebt,
+      description: sentence
     });
   }
 

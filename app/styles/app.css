@@ -1,5 +1,11 @@
 html, body {
   margin: 20px;
+  font-family: 'Lato', sans-serif;
+}
+
+p {
+  line-height: 1.8;
+  width: 700px;
 }
 
 .red {

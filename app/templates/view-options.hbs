@@ -1,1 +1,9 @@
-{{things-table-bindings users=model}}
+<h1>Attribute and Class Bindings</h1>
+
+<p>
+  This route is created specifically to test the performance of `attributeBindings` and `classNameBindings` in the Ember View layer.
+  <a href="https://github.com/emberjs/ember.js/blob/master/packages/ember-handlebars/lib/helpers/view.js#L54">propertiesFromHTMLOptions</a> is the method that causes a lot of grief.
+  Mostly because it gets deoptimized when using <a href="https://github.com/emberjs/ember.js/blob/master/packages/ember-handlebars/lib/helpers/view.js#L96">deletes</a> and <a href="https://github.com/emberjs/ember.js/blob/master/packages/ember-handlebars/lib/helpers/view.js#L108">for-in loops</a> together. That causes "ForIn is not the fast case" deoptimizations.
+</p>
+
+{{bound-table-component users=model}}

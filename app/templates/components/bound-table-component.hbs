@@ -1,7 +1,7 @@
 <table>
   <tbody>
   {{#each users}}
-    <tr {{bind-attr class="isGood:red:green" disabled=isGood}}>
+    <tr {{bind-attr class="isInDebt:green:red" disabled=isGood}}>
       {{#view tagName="td" classNameBindings="id"}}
         {{id}}
       {{/view}}
