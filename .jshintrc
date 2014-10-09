@@ -2,7 +2,7 @@
   "predef": {
     "document": true,
     "window": true,
-    "PerfENV": true
+    "-Promise": true
   },
   "browser" : true,
   "boss" : true,
