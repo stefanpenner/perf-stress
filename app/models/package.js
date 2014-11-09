@@ -1,5 +1,4 @@
 import DS from "ember-data";
-import Ember from "ember";
 
 export default DS.Model.extend({
   name: DS.attr('string'),
@@ -23,8 +22,6 @@ export default DS.Model.extend({
   requiredTypes: DS.hasMany('equipment_type'),
   rentedItems: DS.hasMany('rented_item'),
   rentedItemsSorting: ['equipmentType.id'],
-  sortedRentedItems: Ember.computed.sort('rentedItems', 'rentedItemsSorting'),
   rentedPackage: DS.belongsTo('rented_package'),
-  isRemoved: DS.attr('boolean'),
-  isCompletePackage: Ember.computed.and('includeBoard', 'includeBoots')
+  isRemoved: DS.attr('boolean')
 });

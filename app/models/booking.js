@@ -1,5 +1,4 @@
 import DS from "ember-data";
-import Ember from "ember";
 
 export default DS.Model.extend({
   status: DS.attr('number'),
@@ -19,9 +18,6 @@ export default DS.Model.extend({
   outstandingBalance: DS.attr('number'),
   packagesSorting: ['isAdult:desc', 'name'],
   packages: DS.hasMany('package'),
-  activePackages: Ember.computed.filterBy('packages', 'isRemoved', false),
-  sortedPackages: Ember.computed.sort('packages', 'packagesSorting'),
-  sortedActivePackages: Ember.computed.sort('activePackages', 'packagesSorting'),
   payments: DS.hasMany('payment'),
   collectionDate: DS.attr('date'),
   collectionTime: DS.attr('string'),
