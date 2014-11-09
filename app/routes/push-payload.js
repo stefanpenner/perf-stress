@@ -41,10 +41,13 @@ export default Ember.Route.extend({
             if (!profile.timeTaken) {
               profile.timeTaken = Date.now() - profile.previous;
             }
-            console.log('Added', profile.numItems, profile.name, 'in', profile.timeTaken, 'ms (', (profile.timeTaken/profile.numItems).toFixed(3), 'ms) avg');
           });
-          resolve(profiles);
-          store.find('sync', 1).then(resolve);
+          resolve({
+            profiles: profiles,
+            totalTime: profiles.reduce(function(time, profile) {
+              return time + profile.timeTaken;
+            }, 0)
+          });
         });
       }
       ajax({

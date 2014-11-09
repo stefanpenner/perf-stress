@@ -13,12 +13,18 @@
     </tr>
   </thead>
   <tbody>
-    {{#each profile in model}}
+    {{#each profile in profiles}}
       <tr>
         <td>{{ profile.name }}</td>
         <td>{{ profile.numItems }}</td>
         <td>{{ profile.timeTaken }}ms</td>
       </tr>
     {{/each}}
+    <tr style="margin-top: 1px solid #000">
+      <td colspan="2" style="text-align: right; font-weight: bold">
+        Total
+      </td>
+      <td>{{ totalTime }}</td>
+    </tr>
   </tbody>
 </table>
