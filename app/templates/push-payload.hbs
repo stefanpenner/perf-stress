@@ -1,0 +1,24 @@
+<h1>Speed of pushPayload</h1>
+
+<p>
+  This route is created to illustrate a performance regression I noticed when upgrading to ember 1.8 and ember-data beta 11 as described <a href="http://discuss.emberjs.com/t/10-slowdown-in-store-pushpayload-with-ember-data-beta-11/6608">on the discussion board</a>
+</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Model name</th>
+      <th>Num instances</th>
+      <th>Time to push</th>
+    </tr>
+  </thead>
+  <tbody>
+    {{#each profile in model}}
+      <tr>
+        <td>{{ profile.name }}</td>
+        <td>{{ profile.numItems }}</td>
+        <td>{{ profile.timeTaken }}ms</td>
+      </tr>
+    {{/each}}
+  </tbody>
+</table>

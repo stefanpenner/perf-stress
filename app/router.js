@@ -7,6 +7,7 @@ var Router = Ember.Router.extend({
 
 Router.map(function() {
   this.route('view-options');
+  this.route('push-payload');
 });
 
 export default Router;
